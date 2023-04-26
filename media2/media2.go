@@ -5,9 +5,9 @@ package media2
 import (
 	"context"
 	"encoding/xml"
-	"github.com/hooklift/gowsdl/soap"
 	"github.com/DonieGeng/onvif-go/onvif"
 	"github.com/DonieGeng/onvif-go/xsd"
+	"github.com/hooklift/gowsdl/soap"
 	"time"
 )
 
@@ -159,7 +159,10 @@ type DeleteProfileResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl DeleteProfileResponse"`
 }
 
-type GetVideoEncoderConfigurations GetConfiguration
+type GetVideoEncoderConfigurations struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetVideoEncoderConfigurations"`
+	GetConfiguration
+}
 
 type GetVideoEncoderConfigurationsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetVideoEncoderConfigurationsResponse"`
@@ -168,7 +171,10 @@ type GetVideoEncoderConfigurationsResponse struct {
 	Configurations []*onvif.VideoEncoder2Configuration `xml:"Configurations,omitempty" json:"Configurations,omitempty"`
 }
 
-type GetVideoSourceConfigurations GetConfiguration
+type GetVideoSourceConfigurations struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetVideoSourceConfigurations"`
+	GetConfiguration
+}
 
 type GetVideoSourceConfigurationsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetVideoSourceConfigurationsResponse"`
@@ -177,7 +183,10 @@ type GetVideoSourceConfigurationsResponse struct {
 	Configurations []*onvif.VideoSourceConfiguration `xml:"Configurations,omitempty" json:"Configurations,omitempty"`
 }
 
-type GetAudioEncoderConfigurations GetConfiguration
+type GetAudioEncoderConfigurations struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioEncoderConfigurations"`
+	GetConfiguration
+}
 
 type GetAudioEncoderConfigurationsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioEncoderConfigurationsResponse"`
@@ -186,7 +195,10 @@ type GetAudioEncoderConfigurationsResponse struct {
 	Configurations []*onvif.AudioEncoder2Configuration `xml:"Configurations,omitempty" json:"Configurations,omitempty"`
 }
 
-type GetAudioSourceConfigurations GetConfiguration
+type GetAudioSourceConfigurations struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioSourceConfigurations"`
+	GetConfiguration
+}
 
 type GetAudioSourceConfigurationsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioSourceConfigurationsResponse"`
@@ -195,7 +207,10 @@ type GetAudioSourceConfigurationsResponse struct {
 	Configurations []*onvif.AudioSourceConfiguration `xml:"Configurations,omitempty" json:"Configurations,omitempty"`
 }
 
-type GetAnalyticsConfigurations GetConfiguration
+type GetAnalyticsConfigurations struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAnalyticsConfigurations"`
+	GetConfiguration
+}
 
 type GetAnalyticsConfigurationsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAnalyticsConfigurationsResponse"`
@@ -204,7 +219,10 @@ type GetAnalyticsConfigurationsResponse struct {
 	Configurations []*onvif.VideoAnalyticsConfiguration `xml:"Configurations,omitempty" json:"Configurations,omitempty"`
 }
 
-type GetMetadataConfigurations GetConfiguration
+type GetMetadataConfigurations struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetMetadataConfigurations"`
+	GetConfiguration
+}
 
 type GetMetadataConfigurationsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetMetadataConfigurationsResponse"`
@@ -213,7 +231,10 @@ type GetMetadataConfigurationsResponse struct {
 	Configurations []*onvif.MetadataConfiguration `xml:"Configurations,omitempty" json:"Configurations,omitempty"`
 }
 
-type GetAudioOutputConfigurations GetConfiguration
+type GetAudioOutputConfigurations struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioOutputConfigurations"`
+	GetConfiguration
+}
 
 type GetAudioOutputConfigurationsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioOutputConfigurationsResponse"`
@@ -222,7 +243,10 @@ type GetAudioOutputConfigurationsResponse struct {
 	Configurations []*onvif.AudioOutputConfiguration `xml:"Configurations,omitempty" json:"Configurations,omitempty"`
 }
 
-type GetAudioDecoderConfigurations GetConfiguration
+type GetAudioDecoderConfigurations struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioDecoderConfigurations"`
+	GetConfiguration
+}
 
 type GetAudioDecoderConfigurationsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioDecoderConfigurationsResponse"`
@@ -294,7 +318,10 @@ type SetAudioDecoderConfiguration struct {
 
 type SetAudioDecoderConfigurationResponse SetConfigurationResponse
 
-type GetVideoSourceConfigurationOptions GetConfiguration
+type GetVideoSourceConfigurationOptions struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetVideoSourceConfigurationOptions"`
+	GetConfiguration
+}
 
 type GetVideoSourceConfigurationOptionsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetVideoSourceConfigurationOptionsResponse"`
@@ -303,7 +330,10 @@ type GetVideoSourceConfigurationOptionsResponse struct {
 	Options *onvif.VideoSourceConfigurationOptions `xml:"Options,omitempty" json:"Options,omitempty"`
 }
 
-type GetVideoEncoderConfigurationOptions GetConfiguration
+type GetVideoEncoderConfigurationOptions struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetVideoEncoderConfigurationOptions"`
+	GetConfiguration
+}
 
 type GetVideoEncoderConfigurationOptionsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetVideoEncoderConfigurationOptionsResponse"`
@@ -311,7 +341,10 @@ type GetVideoEncoderConfigurationOptionsResponse struct {
 	Options []*onvif.VideoEncoder2ConfigurationOptions `xml:"Options,omitempty" json:"Options,omitempty"`
 }
 
-type GetAudioSourceConfigurationOptions GetConfiguration
+type GetAudioSourceConfigurationOptions struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioSourceConfigurationOptions"`
+	GetConfiguration
+}
 
 type GetAudioSourceConfigurationOptionsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioSourceConfigurationOptionsResponse"`
@@ -320,7 +353,10 @@ type GetAudioSourceConfigurationOptionsResponse struct {
 	Options *onvif.AudioSourceConfigurationOptions `xml:"Options,omitempty" json:"Options,omitempty"`
 }
 
-type GetAudioEncoderConfigurationOptions GetConfiguration
+type GetAudioEncoderConfigurationOptions struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioEncoderConfigurationOptions"`
+	GetConfiguration
+}
 
 type GetAudioEncoderConfigurationOptionsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioEncoderConfigurationOptionsResponse"`
@@ -329,7 +365,10 @@ type GetAudioEncoderConfigurationOptionsResponse struct {
 	Options []*onvif.AudioEncoder2ConfigurationOptions `xml:"Options,omitempty" json:"Options,omitempty"`
 }
 
-type GetMetadataConfigurationOptions GetConfiguration
+type GetMetadataConfigurationOptions struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetMetadataConfigurationOptions"`
+	GetConfiguration
+}
 
 type GetMetadataConfigurationOptionsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetMetadataConfigurationOptionsResponse"`
@@ -338,7 +377,10 @@ type GetMetadataConfigurationOptionsResponse struct {
 	Options *onvif.MetadataConfigurationOptions `xml:"Options,omitempty" json:"Options,omitempty"`
 }
 
-type GetAudioOutputConfigurationOptions GetConfiguration
+type GetAudioOutputConfigurationOptions struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioOutputConfigurationOptions"`
+	GetConfiguration
+}
 
 type GetAudioOutputConfigurationOptionsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioOutputConfigurationOptionsResponse"`
@@ -347,7 +389,10 @@ type GetAudioOutputConfigurationOptionsResponse struct {
 	Options *onvif.AudioOutputConfigurationOptions `xml:"Options,omitempty" json:"Options,omitempty"`
 }
 
-type GetAudioDecoderConfigurationOptions GetConfiguration
+type GetAudioDecoderConfigurationOptions struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioDecoderConfigurationOptions"`
+	GetConfiguration
+}
 
 type GetAudioDecoderConfigurationOptionsResponse struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver20/media/wsdl GetAudioDecoderConfigurationOptionsResponse"`
@@ -902,44 +947,44 @@ type Media2 interface {
 	DeleteProfileContext(ctx context.Context, request *DeleteProfile) (*DeleteProfileResponse, error)
 
 	/* By default this operation lists all existing video source configurations for a device. Provide a profile token to list only configurations that are compatible with the profile. If a configuration token is provided only a single configuration will be returned. */
-	GetVideoSourceConfigurations(request *GetConfiguration) (*GetVideoSourceConfigurationsResponse, error)
+	GetVideoSourceConfigurations(request *GetVideoSourceConfigurations) (*GetVideoSourceConfigurationsResponse, error)
 
-	GetVideoSourceConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetVideoSourceConfigurationsResponse, error)
+	GetVideoSourceConfigurationsContext(ctx context.Context, request *GetVideoSourceConfigurations) (*GetVideoSourceConfigurationsResponse, error)
 
 	/* By default this operation lists all existing video encoder configurations for a device. Provide a profile token to list only configurations that are compatible with the profile. If a configuration token is provided only a single configuration will be returned. */
-	GetVideoEncoderConfigurations(request *GetConfiguration) (*GetVideoEncoderConfigurationsResponse, error)
+	GetVideoEncoderConfigurations(request *GetVideoEncoderConfigurations) (*GetVideoEncoderConfigurationsResponse, error)
 
-	GetVideoEncoderConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetVideoEncoderConfigurationsResponse, error)
+	GetVideoEncoderConfigurationsContext(ctx context.Context, request *GetVideoEncoderConfigurations) (*GetVideoEncoderConfigurationsResponse, error)
 
 	/* By default this operation lists all existing audio source configurations for a device. Provide a profile token to list only configurations that are compatible with the profile. If a configuration token is provided only a single configuration will be returned. */
-	GetAudioSourceConfigurations(request *GetConfiguration) (*GetAudioSourceConfigurationsResponse, error)
+	GetAudioSourceConfigurations(request *GetAudioSourceConfigurations) (*GetAudioSourceConfigurationsResponse, error)
 
-	GetAudioSourceConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetAudioSourceConfigurationsResponse, error)
+	GetAudioSourceConfigurationsContext(ctx context.Context, request *GetAudioSourceConfigurations) (*GetAudioSourceConfigurationsResponse, error)
 
 	/* By default this operation lists all existing audio encoder configurations for a device. Provide a profile token to list only configurations that are compatible with the profile. If a configuration token is provided only a single configuration will be returned. */
-	GetAudioEncoderConfigurations(request *GetConfiguration) (*GetAudioEncoderConfigurationsResponse, error)
+	GetAudioEncoderConfigurations(request *GetAudioEncoderConfigurations) (*GetAudioEncoderConfigurationsResponse, error)
 
-	GetAudioEncoderConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetAudioEncoderConfigurationsResponse, error)
+	GetAudioEncoderConfigurationsContext(ctx context.Context, request *GetAudioEncoderConfigurations) (*GetAudioEncoderConfigurationsResponse, error)
 
 	/* By default this operation lists all existing video analytics configurations for a device. Provide a profile token to list only configurations that are compatible with the profile. If a configuration token is provided only a single configuration will be returned. */
-	GetAnalyticsConfigurations(request *GetConfiguration) (*GetAnalyticsConfigurationsResponse, error)
+	GetAnalyticsConfigurations(request *GetAnalyticsConfigurations) (*GetAnalyticsConfigurationsResponse, error)
 
-	GetAnalyticsConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetAnalyticsConfigurationsResponse, error)
+	GetAnalyticsConfigurationsContext(ctx context.Context, request *GetAnalyticsConfigurations) (*GetAnalyticsConfigurationsResponse, error)
 
 	/* By default this operation lists all existing metadata configurations for a device. Provide a profile token to list only configurations that are compatible with the profile. If a configuration token is provided only a single configuration will be returned. */
-	GetMetadataConfigurations(request *GetConfiguration) (*GetMetadataConfigurationsResponse, error)
+	GetMetadataConfigurations(request *GetMetadataConfigurations) (*GetMetadataConfigurationsResponse, error)
 
-	GetMetadataConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetMetadataConfigurationsResponse, error)
+	GetMetadataConfigurationsContext(ctx context.Context, request *GetMetadataConfigurations) (*GetMetadataConfigurationsResponse, error)
 
 	/* By default this operation lists all existing audio output configurations for a device. Provide a profile token to list only configurations that are compatible with the profile. If a configuration token is provided only a single configuration will be returned. */
-	GetAudioOutputConfigurations(request *GetConfiguration) (*GetAudioOutputConfigurationsResponse, error)
+	GetAudioOutputConfigurations(request *GetAudioOutputConfigurations) (*GetAudioOutputConfigurationsResponse, error)
 
-	GetAudioOutputConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetAudioOutputConfigurationsResponse, error)
+	GetAudioOutputConfigurationsContext(ctx context.Context, request *GetAudioOutputConfigurations) (*GetAudioOutputConfigurationsResponse, error)
 
 	/* By default this operation lists all existing audio decoder configurations for a device. Provide a profile token to list only configurations that are compatible with the profile. If a configuration token is provided only a single configuration will be returned. */
-	GetAudioDecoderConfigurations(request *GetConfiguration) (*GetAudioDecoderConfigurationsResponse, error)
+	GetAudioDecoderConfigurations(request *GetAudioDecoderConfigurations) (*GetAudioDecoderConfigurationsResponse, error)
 
-	GetAudioDecoderConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetAudioDecoderConfigurationsResponse, error)
+	GetAudioDecoderConfigurationsContext(ctx context.Context, request *GetAudioDecoderConfigurations) (*GetAudioDecoderConfigurationsResponse, error)
 
 	/* This operation modifies a video source configuration. Running streams using this configuration may be immediately updated according to the new settings. The changes are not guaranteed to take effect unless the client requests a new stream URI and restarts any affected stream. NVC methods for changing a running stream are out of scope for this specification. */
 	SetVideoSourceConfiguration(request *SetVideoSourceConfiguration) (*SetConfigurationResponse, error)
@@ -989,9 +1034,9 @@ type Media2 interface {
 	reconfigured If a video source configuration is specified, the options shall concern that
 	particular configuration. If a media profile is specified, the options shall be compatible with
 	that media profile. */
-	GetVideoSourceConfigurationOptions(request *GetConfiguration) (*GetVideoSourceConfigurationOptionsResponse, error)
+	GetVideoSourceConfigurationOptions(request *GetVideoSourceConfigurationOptions) (*GetVideoSourceConfigurationOptionsResponse, error)
 
-	GetVideoSourceConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetVideoSourceConfigurationOptionsResponse, error)
+	GetVideoSourceConfigurationOptionsContext(ctx context.Context, request *GetVideoSourceConfigurationOptions) (*GetVideoSourceConfigurationOptionsResponse, error)
 
 	/* This operation returns the available options (supported values and ranges for video encoder
 	configuration parameters) when the video encoder parameters are reconfigured.
@@ -999,39 +1044,39 @@ type Media2 interface {
 	the options shall concern that particular configuration. If a media profile is specified, the options shall be
 	compatible with that media profile. If no tokens are specified, the options shall be considered generic for the device.
 	*/
-	GetVideoEncoderConfigurationOptions(request *GetConfiguration) (*GetVideoEncoderConfigurationOptionsResponse, error)
+	GetVideoEncoderConfigurationOptions(request *GetVideoEncoderConfigurationOptions) (*GetVideoEncoderConfigurationOptionsResponse, error)
 
-	GetVideoEncoderConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetVideoEncoderConfigurationOptionsResponse, error)
+	GetVideoEncoderConfigurationOptionsContext(ctx context.Context, request *GetVideoEncoderConfigurationOptions) (*GetVideoEncoderConfigurationOptionsResponse, error)
 
 	/* This operation returns the available options (supported values and ranges for audio source configuration parameters) when the audio source parameters are
 	reconfigured. If an audio source configuration is specified, the options shall concern that
 	particular configuration. If a media profile is specified, the options shall be compatible with
 	that media profile. */
-	GetAudioSourceConfigurationOptions(request *GetConfiguration) (*GetAudioSourceConfigurationOptionsResponse, error)
+	GetAudioSourceConfigurationOptions(request *GetAudioSourceConfigurationOptions) (*GetAudioSourceConfigurationOptionsResponse, error)
 
-	GetAudioSourceConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetAudioSourceConfigurationOptionsResponse, error)
+	GetAudioSourceConfigurationOptionsContext(ctx context.Context, request *GetAudioSourceConfigurationOptions) (*GetAudioSourceConfigurationOptionsResponse, error)
 
 	/* This operation returns the available options  (supported values and ranges for audio encoder configuration parameters) when the audio encoder parameters are
 	reconfigured. */
-	GetAudioEncoderConfigurationOptions(request *GetConfiguration) (*GetAudioEncoderConfigurationOptionsResponse, error)
+	GetAudioEncoderConfigurationOptions(request *GetAudioEncoderConfigurationOptions) (*GetAudioEncoderConfigurationOptionsResponse, error)
 
-	GetAudioEncoderConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetAudioEncoderConfigurationOptionsResponse, error)
+	GetAudioEncoderConfigurationOptionsContext(ctx context.Context, request *GetAudioEncoderConfigurationOptions) (*GetAudioEncoderConfigurationOptionsResponse, error)
 
 	/* This operation returns the available options (supported values and ranges for metadata configuration parameters) for changing the metadata configuration. */
-	GetMetadataConfigurationOptions(request *GetConfiguration) (*GetMetadataConfigurationOptionsResponse, error)
+	GetMetadataConfigurationOptions(request *GetMetadataConfigurationOptions) (*GetMetadataConfigurationOptionsResponse, error)
 
-	GetMetadataConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetMetadataConfigurationOptionsResponse, error)
+	GetMetadataConfigurationOptionsContext(ctx context.Context, request *GetMetadataConfigurationOptions) (*GetMetadataConfigurationOptionsResponse, error)
 
 	/* This operation returns the available options (supported values and ranges for audio output configuration parameters) for configuring an audio output. */
-	GetAudioOutputConfigurationOptions(request *GetConfiguration) (*GetAudioOutputConfigurationOptionsResponse, error)
+	GetAudioOutputConfigurationOptions(request *GetAudioOutputConfigurationOptions) (*GetAudioOutputConfigurationOptionsResponse, error)
 
-	GetAudioOutputConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetAudioOutputConfigurationOptionsResponse, error)
+	GetAudioOutputConfigurationOptionsContext(ctx context.Context, request *GetAudioOutputConfigurationOptions) (*GetAudioOutputConfigurationOptionsResponse, error)
 
 	/* This command list the audio decoding capabilities for a given profile and configuration of a
 	device. */
-	GetAudioDecoderConfigurationOptions(request *GetConfiguration) (*GetAudioDecoderConfigurationOptionsResponse, error)
+	GetAudioDecoderConfigurationOptions(request *GetAudioDecoderConfigurationOptions) (*GetAudioDecoderConfigurationOptionsResponse, error)
 
-	GetAudioDecoderConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetAudioDecoderConfigurationOptionsResponse, error)
+	GetAudioDecoderConfigurationOptionsContext(ctx context.Context, request *GetAudioDecoderConfigurationOptions) (*GetAudioDecoderConfigurationOptionsResponse, error)
 
 	/* The GetVideoEncoderInstances command can be used to request the
 	minimum number of guaranteed video encoder instances (applications) per Video Source
@@ -1270,7 +1315,7 @@ func (service *media2) DeleteProfile(request *DeleteProfile) (*DeleteProfileResp
 	)
 }
 
-func (service *media2) GetVideoSourceConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetVideoSourceConfigurationsResponse, error) {
+func (service *media2) GetVideoSourceConfigurationsContext(ctx context.Context, request *GetVideoSourceConfigurations) (*GetVideoSourceConfigurationsResponse, error) {
 	response := new(GetVideoSourceConfigurationsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1280,14 +1325,14 @@ func (service *media2) GetVideoSourceConfigurationsContext(ctx context.Context, 
 	return response, nil
 }
 
-func (service *media2) GetVideoSourceConfigurations(request *GetConfiguration) (*GetVideoSourceConfigurationsResponse, error) {
+func (service *media2) GetVideoSourceConfigurations(request *GetVideoSourceConfigurations) (*GetVideoSourceConfigurationsResponse, error) {
 	return service.GetVideoSourceConfigurationsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetVideoEncoderConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetVideoEncoderConfigurationsResponse, error) {
+func (service *media2) GetVideoEncoderConfigurationsContext(ctx context.Context, request *GetVideoEncoderConfigurations) (*GetVideoEncoderConfigurationsResponse, error) {
 	response := new(GetVideoEncoderConfigurationsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1297,14 +1342,14 @@ func (service *media2) GetVideoEncoderConfigurationsContext(ctx context.Context,
 	return response, nil
 }
 
-func (service *media2) GetVideoEncoderConfigurations(request *GetConfiguration) (*GetVideoEncoderConfigurationsResponse, error) {
+func (service *media2) GetVideoEncoderConfigurations(request *GetVideoEncoderConfigurations) (*GetVideoEncoderConfigurationsResponse, error) {
 	return service.GetVideoEncoderConfigurationsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetAudioSourceConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetAudioSourceConfigurationsResponse, error) {
+func (service *media2) GetAudioSourceConfigurationsContext(ctx context.Context, request *GetAudioSourceConfigurations) (*GetAudioSourceConfigurationsResponse, error) {
 	response := new(GetAudioSourceConfigurationsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1314,14 +1359,14 @@ func (service *media2) GetAudioSourceConfigurationsContext(ctx context.Context, 
 	return response, nil
 }
 
-func (service *media2) GetAudioSourceConfigurations(request *GetConfiguration) (*GetAudioSourceConfigurationsResponse, error) {
+func (service *media2) GetAudioSourceConfigurations(request *GetAudioSourceConfigurations) (*GetAudioSourceConfigurationsResponse, error) {
 	return service.GetAudioSourceConfigurationsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetAudioEncoderConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetAudioEncoderConfigurationsResponse, error) {
+func (service *media2) GetAudioEncoderConfigurationsContext(ctx context.Context, request *GetAudioEncoderConfigurations) (*GetAudioEncoderConfigurationsResponse, error) {
 	response := new(GetAudioEncoderConfigurationsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1331,14 +1376,14 @@ func (service *media2) GetAudioEncoderConfigurationsContext(ctx context.Context,
 	return response, nil
 }
 
-func (service *media2) GetAudioEncoderConfigurations(request *GetConfiguration) (*GetAudioEncoderConfigurationsResponse, error) {
+func (service *media2) GetAudioEncoderConfigurations(request *GetAudioEncoderConfigurations) (*GetAudioEncoderConfigurationsResponse, error) {
 	return service.GetAudioEncoderConfigurationsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetAnalyticsConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetAnalyticsConfigurationsResponse, error) {
+func (service *media2) GetAnalyticsConfigurationsContext(ctx context.Context, request *GetAnalyticsConfigurations) (*GetAnalyticsConfigurationsResponse, error) {
 	response := new(GetAnalyticsConfigurationsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1348,14 +1393,14 @@ func (service *media2) GetAnalyticsConfigurationsContext(ctx context.Context, re
 	return response, nil
 }
 
-func (service *media2) GetAnalyticsConfigurations(request *GetConfiguration) (*GetAnalyticsConfigurationsResponse, error) {
+func (service *media2) GetAnalyticsConfigurations(request *GetAnalyticsConfigurations) (*GetAnalyticsConfigurationsResponse, error) {
 	return service.GetAnalyticsConfigurationsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetMetadataConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetMetadataConfigurationsResponse, error) {
+func (service *media2) GetMetadataConfigurationsContext(ctx context.Context, request *GetMetadataConfigurations) (*GetMetadataConfigurationsResponse, error) {
 	response := new(GetMetadataConfigurationsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1365,14 +1410,14 @@ func (service *media2) GetMetadataConfigurationsContext(ctx context.Context, req
 	return response, nil
 }
 
-func (service *media2) GetMetadataConfigurations(request *GetConfiguration) (*GetMetadataConfigurationsResponse, error) {
+func (service *media2) GetMetadataConfigurations(request *GetMetadataConfigurations) (*GetMetadataConfigurationsResponse, error) {
 	return service.GetMetadataConfigurationsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetAudioOutputConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetAudioOutputConfigurationsResponse, error) {
+func (service *media2) GetAudioOutputConfigurationsContext(ctx context.Context, request *GetAudioOutputConfigurations) (*GetAudioOutputConfigurationsResponse, error) {
 	response := new(GetAudioOutputConfigurationsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1382,14 +1427,14 @@ func (service *media2) GetAudioOutputConfigurationsContext(ctx context.Context, 
 	return response, nil
 }
 
-func (service *media2) GetAudioOutputConfigurations(request *GetConfiguration) (*GetAudioOutputConfigurationsResponse, error) {
+func (service *media2) GetAudioOutputConfigurations(request *GetAudioOutputConfigurations) (*GetAudioOutputConfigurationsResponse, error) {
 	return service.GetAudioOutputConfigurationsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetAudioDecoderConfigurationsContext(ctx context.Context, request *GetConfiguration) (*GetAudioDecoderConfigurationsResponse, error) {
+func (service *media2) GetAudioDecoderConfigurationsContext(ctx context.Context, request *GetAudioDecoderConfigurations) (*GetAudioDecoderConfigurationsResponse, error) {
 	response := new(GetAudioDecoderConfigurationsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1399,7 +1444,7 @@ func (service *media2) GetAudioDecoderConfigurationsContext(ctx context.Context,
 	return response, nil
 }
 
-func (service *media2) GetAudioDecoderConfigurations(request *GetConfiguration) (*GetAudioDecoderConfigurationsResponse, error) {
+func (service *media2) GetAudioDecoderConfigurations(request *GetAudioDecoderConfigurations) (*GetAudioDecoderConfigurationsResponse, error) {
 	return service.GetAudioDecoderConfigurationsContext(
 		context.Background(),
 		request,
@@ -1525,7 +1570,7 @@ func (service *media2) SetAudioDecoderConfiguration(request *SetAudioDecoderConf
 	)
 }
 
-func (service *media2) GetVideoSourceConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetVideoSourceConfigurationOptionsResponse, error) {
+func (service *media2) GetVideoSourceConfigurationOptionsContext(ctx context.Context, request *GetVideoSourceConfigurationOptions) (*GetVideoSourceConfigurationOptionsResponse, error) {
 	response := new(GetVideoSourceConfigurationOptionsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1535,14 +1580,14 @@ func (service *media2) GetVideoSourceConfigurationOptionsContext(ctx context.Con
 	return response, nil
 }
 
-func (service *media2) GetVideoSourceConfigurationOptions(request *GetConfiguration) (*GetVideoSourceConfigurationOptionsResponse, error) {
+func (service *media2) GetVideoSourceConfigurationOptions(request *GetVideoSourceConfigurationOptions) (*GetVideoSourceConfigurationOptionsResponse, error) {
 	return service.GetVideoSourceConfigurationOptionsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetVideoEncoderConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetVideoEncoderConfigurationOptionsResponse, error) {
+func (service *media2) GetVideoEncoderConfigurationOptionsContext(ctx context.Context, request *GetVideoEncoderConfigurationOptions) (*GetVideoEncoderConfigurationOptionsResponse, error) {
 	response := new(GetVideoEncoderConfigurationOptionsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1552,14 +1597,14 @@ func (service *media2) GetVideoEncoderConfigurationOptionsContext(ctx context.Co
 	return response, nil
 }
 
-func (service *media2) GetVideoEncoderConfigurationOptions(request *GetConfiguration) (*GetVideoEncoderConfigurationOptionsResponse, error) {
+func (service *media2) GetVideoEncoderConfigurationOptions(request *GetVideoEncoderConfigurationOptions) (*GetVideoEncoderConfigurationOptionsResponse, error) {
 	return service.GetVideoEncoderConfigurationOptionsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetAudioSourceConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetAudioSourceConfigurationOptionsResponse, error) {
+func (service *media2) GetAudioSourceConfigurationOptionsContext(ctx context.Context, request *GetAudioSourceConfigurationOptions) (*GetAudioSourceConfigurationOptionsResponse, error) {
 	response := new(GetAudioSourceConfigurationOptionsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1569,14 +1614,14 @@ func (service *media2) GetAudioSourceConfigurationOptionsContext(ctx context.Con
 	return response, nil
 }
 
-func (service *media2) GetAudioSourceConfigurationOptions(request *GetConfiguration) (*GetAudioSourceConfigurationOptionsResponse, error) {
+func (service *media2) GetAudioSourceConfigurationOptions(request *GetAudioSourceConfigurationOptions) (*GetAudioSourceConfigurationOptionsResponse, error) {
 	return service.GetAudioSourceConfigurationOptionsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetAudioEncoderConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetAudioEncoderConfigurationOptionsResponse, error) {
+func (service *media2) GetAudioEncoderConfigurationOptionsContext(ctx context.Context, request *GetAudioEncoderConfigurationOptions) (*GetAudioEncoderConfigurationOptionsResponse, error) {
 	response := new(GetAudioEncoderConfigurationOptionsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1586,14 +1631,14 @@ func (service *media2) GetAudioEncoderConfigurationOptionsContext(ctx context.Co
 	return response, nil
 }
 
-func (service *media2) GetAudioEncoderConfigurationOptions(request *GetConfiguration) (*GetAudioEncoderConfigurationOptionsResponse, error) {
+func (service *media2) GetAudioEncoderConfigurationOptions(request *GetAudioEncoderConfigurationOptions) (*GetAudioEncoderConfigurationOptionsResponse, error) {
 	return service.GetAudioEncoderConfigurationOptionsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetMetadataConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetMetadataConfigurationOptionsResponse, error) {
+func (service *media2) GetMetadataConfigurationOptionsContext(ctx context.Context, request *GetMetadataConfigurationOptions) (*GetMetadataConfigurationOptionsResponse, error) {
 	response := new(GetMetadataConfigurationOptionsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1603,14 +1648,14 @@ func (service *media2) GetMetadataConfigurationOptionsContext(ctx context.Contex
 	return response, nil
 }
 
-func (service *media2) GetMetadataConfigurationOptions(request *GetConfiguration) (*GetMetadataConfigurationOptionsResponse, error) {
+func (service *media2) GetMetadataConfigurationOptions(request *GetMetadataConfigurationOptions) (*GetMetadataConfigurationOptionsResponse, error) {
 	return service.GetMetadataConfigurationOptionsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetAudioOutputConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetAudioOutputConfigurationOptionsResponse, error) {
+func (service *media2) GetAudioOutputConfigurationOptionsContext(ctx context.Context, request *GetAudioOutputConfigurationOptions) (*GetAudioOutputConfigurationOptionsResponse, error) {
 	response := new(GetAudioOutputConfigurationOptionsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1620,14 +1665,14 @@ func (service *media2) GetAudioOutputConfigurationOptionsContext(ctx context.Con
 	return response, nil
 }
 
-func (service *media2) GetAudioOutputConfigurationOptions(request *GetConfiguration) (*GetAudioOutputConfigurationOptionsResponse, error) {
+func (service *media2) GetAudioOutputConfigurationOptions(request *GetAudioOutputConfigurationOptions) (*GetAudioOutputConfigurationOptionsResponse, error) {
 	return service.GetAudioOutputConfigurationOptionsContext(
 		context.Background(),
 		request,
 	)
 }
 
-func (service *media2) GetAudioDecoderConfigurationOptionsContext(ctx context.Context, request *GetConfiguration) (*GetAudioDecoderConfigurationOptionsResponse, error) {
+func (service *media2) GetAudioDecoderConfigurationOptionsContext(ctx context.Context, request *GetAudioDecoderConfigurationOptions) (*GetAudioDecoderConfigurationOptionsResponse, error) {
 	response := new(GetAudioDecoderConfigurationOptionsResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
@@ -1637,7 +1682,7 @@ func (service *media2) GetAudioDecoderConfigurationOptionsContext(ctx context.Co
 	return response, nil
 }
 
-func (service *media2) GetAudioDecoderConfigurationOptions(request *GetConfiguration) (*GetAudioDecoderConfigurationOptionsResponse, error) {
+func (service *media2) GetAudioDecoderConfigurationOptions(request *GetAudioDecoderConfigurationOptions) (*GetAudioDecoderConfigurationOptionsResponse, error) {
 	return service.GetAudioDecoderConfigurationOptionsContext(
 		context.Background(),
 		request,

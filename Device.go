@@ -5,14 +5,16 @@ import (
 	"errors"
 	"github.com/DonieGeng/onvif-go/device"
 	"github.com/hooklift/gowsdl/soap"
+	"github.com/smallnest/safemap"
 	"net/url"
 	"strings"
 )
 
 type Device struct {
 	params    DeviceParams
-	endpoints map[string]*soap.Client
+	endpoints map[string]string
 	info      DeviceInfo
+	services  *safemap.SafeMap[string, *soap.Client]
 }
 
 type DeviceParams struct {
@@ -33,9 +35,14 @@ type DeviceInfo struct {
 func NewDevice(params DeviceParams) (*Device, error) {
 	dev := new(Device)
 	dev.params = params
-	dev.endpoints = make(map[string]*soap.Client)
+	dev.endpoints = make(map[string]string)
+	dev.services = safemap.New[string, *soap.Client]()
 
 	client := soap.NewClient("http://" + dev.params.Xaddr + "/onvif/device_service")
+	//Auth Handling
+	if dev.params.Username != "" && dev.params.Password != "" {
+		client.AddHeader(soap.NewWSSSecurityHeader(dev.params.Username, dev.params.Password, "", ""))
+	}
 	device_service := device.NewDevice(client)
 
 	servicesResp, err := device_service.GetServices(&device.GetServices{})
@@ -59,15 +66,25 @@ func NewDevice(params DeviceParams) (*Device, error) {
 
 }
 
-// GetServices return available endpoints
-func (dev *Device) GetEndpoint(name string) *soap.Client {
-	endpoint, _ := dev.getEndpoint(name)
-	return endpoint
-}
-
-// GetServices return available endpoints
 func (dev *Device) GetDeviceInfo() DeviceInfo {
 	return dev.info
+}
+
+func (dev *Device) GetService(Key string) (*soap.Client, error) {
+	lowCaseKey := strings.ToLower(Key)
+	service, ok := dev.services.Get(lowCaseKey)
+	if ok == false {
+		endpointUrl, err := dev.getEndpoint(Key)
+		if err != nil {
+			return nil, errors.New("camera does not have " + Key + " services")
+		}
+		service = soap.NewClient(endpointUrl)
+		if dev.params.Username != "" && dev.params.Password != "" {
+			service.AddHeader(soap.NewWSSSecurityHeader(dev.params.Username, dev.params.Password, "", ""))
+		}
+		dev.services.Set(lowCaseKey, service)
+	}
+	return service, nil
 }
 
 func (dev *Device) getSupportedServices(resp *device.GetServicesResponse) {
@@ -96,33 +113,26 @@ func (dev *Device) addEndpoint(Key, Value string) {
 		u.Host = dev.params.Xaddr
 		Value = u.String()
 	}
-
-	client := soap.NewClient(Value, soap.WithBasicAuth(dev.params.Username, dev.params.Password))
-
-	//switch lowCaseKey {
-	//case "device":
-	//	service := device.NewDevice(client)
-	//}
-	dev.endpoints[lowCaseKey] = client
+	dev.endpoints[lowCaseKey] = Value
 }
 
 // getEndpoint functions get the target service endpoint in a better way
-func (dev Device) getEndpoint(endpoint string) (*soap.Client, error) {
+func (dev Device) getEndpoint(endpoint string) (string, error) {
 
 	// common condition, endpointMark in map we use this.
-	if endpointClient, bFound := dev.endpoints[endpoint]; bFound {
-		return endpointClient, nil
+	if endpointUrl, bFound := dev.endpoints[endpoint]; bFound {
+		return endpointUrl, nil
 	}
 
 	//but ,if we have endpoint like event\analytic
 	//and sametime the Targetkey like : events\analytics
 	//we use fuzzy way to find the best match url
-	var endpointClient *soap.Client
+	var endpointUrl string
 	for targetKey := range dev.endpoints {
 		if strings.Contains(targetKey, endpoint) {
-			endpointClient = dev.endpoints[targetKey]
-			return endpointClient, nil
+			endpointUrl = dev.endpoints[targetKey]
+			return endpointUrl, nil
 		}
 	}
-	return endpointClient, errors.New("target endpoint service not found")
+	return endpointUrl, errors.New("target endpoint service not found")
 }
